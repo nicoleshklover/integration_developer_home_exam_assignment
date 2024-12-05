@@ -2,7 +2,7 @@ import requests
 
 def GregorianToHebrew(gregorian_date: str) -> str:
     """
-    converts a Gregorian date to a Hebrew date, with the Hebrew Date Converter REST API.
+    Converts a Gregorian date to a Hebrew date, with the Hebrew Date Converter REST API.
     link to API documentation: https://www.hebcal.com/home/219/hebrew-date-converter-rest-api
 
     input: 
