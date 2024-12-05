@@ -25,6 +25,14 @@ def GregorianToHebrew(gregorian_date: str) -> str:
         # convert string response to json, extract hebrew date and reverse it so it would be from right to left
         hebrew_date = response.json()["hebrew"]
 
+        # # prints for debugging
+        # print(response.status_code)
+        # print(hebrew_date)
+
+        # # for debugging - write the date to a text file to ensure its valid
+        # with open("hebrew_date.txt", "w", encoding="utf-8") as file:
+        #     file.write(hebrew_date)
+
         return hebrew_date
 
     except requests.exceptions.RequestException as e:
