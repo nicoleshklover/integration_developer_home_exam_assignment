@@ -16,8 +16,15 @@ def GregorianToHebrew(gregorian_date: str) -> str:
     """
 
     try:
+
+        # check which format was inserted
+        if gregorian_date[0] == "g":
+            date_format = gregorian_date
+        else:
+            date_format = "date=" + gregorian_date
+
         # send get request
-        response = requests.get(f"https://www.hebcal.com/converter?cfg=json&date={gregorian_date}&g2h=1&strict=1")
+        response = requests.get(f"https://www.hebcal.com/converter?cfg=json&{date_format}&g2h=1&strict=1")
 
         # raise exceptions if the status code is not 200 (http errors)
         response.raise_for_status()
@@ -25,18 +32,8 @@ def GregorianToHebrew(gregorian_date: str) -> str:
         # convert string response to json, extract hebrew date and reverse it so it would be from right to left
         hebrew_date = response.json()["hebrew"]
 
-        # # prints for debugging
-        # print(response.status_code)
-        # print(hebrew_date)
-
-        # # for debugging - write the date to a text file to ensure its valid
-        # with open("hebrew_date.txt", "w", encoding="utf-8") as file:
-        #     file.write(hebrew_date)
-
         return hebrew_date
 
     except requests.exceptions.RequestException as e:
         print(f" An erorr has occurred: {e}")
-
-    
 
