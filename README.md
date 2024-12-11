@@ -1,4 +1,4 @@
-﻿# Integration Developer Home Exam
+﻿# Convert a Gregorian date to a Hebrew date
 
 by Nicole Shklover<br><br>
 This code converts a given Gregorian date to a Hebrew date, with a Hebrew Date Converter REST API.
